@@ -1,104 +1,138 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Introduktion - x86prime</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Introduktion";
+    var mkdocs_page_input_path = "afviklingsplot/index.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> x86prime</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Afviklingsplot</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">Introduktion</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#afviklings-plot">Afviklings Plot</a></li>
+    
+        <ul>
         
+            <li><a class="toctree-l4" href="#ide">Ide</a></li>
         
+            <li><a class="toctree-l4" href="#pipeline-faser-og-ressourcer">Pipeline faser og ressourcer</a></li>
         
-        <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>Afviklingsplot - x86prime</title>
-        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="../css/font-awesome.min.css" rel="stylesheet">
-        <link href="../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
+            <li><a class="toctree-l4" href="#data-afhngigheder">Data afhængigheder</a></li>
+        
+        </ul>
+    
 
-        <script src="../js/jquery-1.10.2.min.js" defer></script>
-        <script src="../js/bootstrap-3.0.3.min.js" defer></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-        <script>hljs.initHighlightingOnLoad();</script> 
-    </head>
-
-    <body>
-
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-            <div class="container">
-
-                <!-- Collapsed navigation -->
-                <div class="navbar-header">
-                    <!-- Expander button -->
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="..">x86prime</a>
-                </div>
-
-                <!-- Expanded navigation -->
-                <div class="navbar-collapse collapse">
-                        <!-- Main navigation -->
-                        <ul class="nav navbar-nav">
-                            <li >
-                                <a href="..">Home</a>
-                            </li>
-                            <li class="active">
-                                <a href="./">Afviklingsplot</a>
-                            </li>
-                        </ul>
-
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
-                                <i class="fa fa-search"></i> Search
-                            </a>
-                        </li>
-                            <li >
-                                <a rel="next" href="..">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li class="disabled">
-                                <a rel="prev" >
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
-    <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#afviklings-plot">Afviklings Plot</a></li>
-            <li><a href="#ide">Ide</a></li>
-            <li><a href="#pipeline-faser-og-ressourcer">Pipeline faser og ressourcer</a></li>
-            <li><a href="#data-afhngigheder">Data afhængigheder</a></li>
-        <li class="main "><a href="#superskalar-mikroarkitektur">Superskalar mikroarkitektur</a></li>
-        <li class="main "><a href="#anonyme-faser">Anonyme faser</a></li>
-            <li><a href="#lngere-pipelines">Længere pipelines</a></li>
-            <li><a href="#abstraktion">Abstraktion</a></li>
-            <li><a href="#ker">Køer</a></li>
-            <li><a href="#cache-miss">Cache-miss</a></li>
-        <li class="main "><a href="#out-of-order">Out-of-order</a></li>
-            <li><a href="#faser-i-program-rkkeflge-eller-ej">Faser i program-rækkefølge - eller ej</a></li>
-            <li><a href="#standardmodellen-for-out-of-order-mikroarkitektur">Standardmodellen for out-of-order mikroarkitektur</a></li>
-        <li class="main "><a href="#kontrol-afhngigheder">Kontrol afhængigheder</a></li>
-            <li><a href="#modellering">Modellering</a></li>
-            <li><a href="#spekulativ-udfrelse">spekulativ udførelse</a></li>
     </ul>
-</div></div>
-                <div class="col-md-9" role="main">
+                </li>
+                <li class="">
+                    
+    <a class="" href="superscalar/">Superskalar</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="anonyme/">Anonyme Faser</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="out-of-order/">Out-of-order</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="kontrol/">Kontrol afhængigheder</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
 
-<h1 id="afviklings-plot">Afviklings Plot</h1>
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">x86prime</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Afviklingsplot &raquo;</li>
+        
+      
+    
+    <li>Introduktion</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="afviklings-plot">Afviklings Plot</h1>
 <p>af Finn Schiermer Andersen, DIKU, 2019</p>
 <p>Denne lille note introducerer afviklingsplot.</p>
 <p>Et afviklingsplot er en idealiseret illustration af hvordan en mikroarkitektur
@@ -197,432 +231,52 @@ addq $8,r10          FDXMW      resA -&gt; forsinket F, r10.time = 7
 <p>Bemærk hvorledes instruktion nr. 2 bliver forsinket en clock periode i sin D-fase,
 fordi den afhænger af r11 som bliver produceret af den forudgående instruktion
 der har en latenstid på 2 clock-perioder.</p>
-<h1 id="superskalar-mikroarkitektur">Superskalar mikroarkitektur</h1>
-<p>I jagten efter højere ydeevne kan man finde på at skrue op for ressourcerne.
-Hvis der er mere end en instruktion der udfører sin X-fase samtidigt, taler
-man om en superskalar maskine.</p>
-<p>En simpel 2-vejs superskalar kan håndtere 2 instruktioner samtidigt i
-faserne F,D,X og W, men kun 1 instruktion samtidigt i fase M. Det er motiveret
-af at fase M er dyrere end de andre. Til gengæld vil man knytte forskellige faser
-til forskellige klasser af instruktioner, således at ikke alle har en fase M.
-Man kan også undgå en fase W for instruktioner der ikke skriver til et resultat
-register</p>
-<pre><code>simpel aritmetik:  FDXW
-movq (a),b: FDXMW
-movq b,(a): FDXM
-
-dataafhængigheder:
-aritmetik a op b: X.time &gt;= max(a.time, b.time); b.time = X.time + 1
-movq (a),b: X.time &gt;= a.time; M.time &gt;= MEM[a].time; b.time = M.time + 1
-movq b,(a): X.time &gt;= a.time, M.time &gt;= b.time; MEM[a].time = S.time + 1
-
-inorder(F,D,X,M,W)
-resourcer pr clk: F:2, D:2, X:2, M:1, W:2
-</code></pre>
-
-<p>Giver os følgende afvikling:</p>
-<pre><code>                 012345678
-movq (r10),r11   FDXMW          r11.time = 4
-addq $100,r11    FDDDXW         X.time &gt;= r11.time -&gt; Forsinket X, Gentag D, r11.time = 5
-movq r11,(r10)    FDDXM         resB -&gt; Forsinket D, Gentag F, X.time &gt;= r10.time, M.time &gt;= r11.time
-addq $8,r10       FFFDXW        resB -&gt; Gentag F, r10.time = 7
-</code></pre>
-
-<h1 id="anonyme-faser">Anonyme faser</h1>
-<p>Det er lidt træls, hvis man skal redegøre separat for hver enkelt fase en instruktion
-gennemløber i en moderne mikroarkitektur. Det skyldes at moderne mikroarkitekturer
-afvikler instruktioner i mange forskellige faser.</p>
-<h2 id="lngere-pipelines">Længere pipelines</h2>
-<p>I moderne CMOS er det ikke realistisk at lave et cache-opslag på en enkelt cyklus.
-Typisk bruges tre cykler, fuldt pipelinet. Oftest er det heller ikke muligt at
-fuldt afkode en instruktion på en enkelt cyklus.</p>
-<p>Vi kunne navngive hver enkelt af de ekstra faser der kræves og opskrive regler
-for hver af dem. Vi vælger en simplere notation: Når vi opskriver faserne for
-en instruktionsklasse kan vi</p>
-<ul>
-<li>tilføje anonyme faser som er påkrævet med "-" og</li>
-<li>angive hvor mange instuktioner der kan befinde sig i "mellemrummet" mellem
-  to navngivne faser.</li>
-</ul>
-<p>Man kan vælge at betragte tidligere beskrivelser af begrænsinger som specialtilfælde,
-hvor <em>ingen</em> instruktioner må være i anonyme faser, dvs: F-D: 0, D-X: 0, X-M: 0, M-W: 0.
-Her betyder såleds "F-D: 0" at der ingen instruktioner må være, som har gennemført fase
-F, men ikke påbegyndt D. Med andre ord: Fase D skal følge direkte efter fase F i afviklingsplottet</p>
-<p>For eksempel:</p>
-<pre><code>resC: max pr clk: F-D: 4, D-X: 2, M-W: 2
-</code></pre>
-
-<p>Angiver 4 ekstra instruktioner mellem F og D, 2 ekstra mellem D og X og to ekstra
-mellem M og W.</p>
-<p>Så vi i alt har:</p>
-<pre><code>aritmetik:  F--D-XW
-movq (a),b: F--D-XM--W
-movq b,(a): F--D-XM
-
-dataafhængigheder:
-aritmetik a op b: X.time &gt;= max(a.time, b.time); b.time = X.time + 1
-movq (a),b: X.time &gt;= a.time; M.time &gt;= MEM[a].time; b.time = M.time + 3
-movq b,(a): X.time &gt;= a.time, M.time &gt;= b.time; MEM[a].time = S.time + 3
-
-inorder(F,D,X,M,W)
-resB: max pr clk: F:2, D:2, X:2, M:1, W:2
-resC: max pr clk: F-D: 4, D-X: 2, M-W: 2
-</code></pre>
-
-<p>Hvilket giver følgende afvikling</p>
-<pre><code>                 012345678901234567
-movq (r10),r11   F--D-XM--W            r11.time = 9
-addq $100,r11    F--D-----XW           X.time &gt;= r11.time -&gt; Forsinket X, r11.time = 10
-movq r11,(r10)    F--D----XM           X.time &gt;= r10.time, M.time &gt;= r11.time
-addq $8,r10       F--DDDDD-XW          r10.time = 11
-movq (r10),r11     F--DDDD--XM--W      X.time &gt;= r10.time, r11.time = 15
-addq $100,r11      F------D-----XW     X.time &gt;= r11.time -&gt; Forsinket X, r11.time = 16
-movq r11,(r10)      F-----DD----XM     X.time &gt;= r10.time, M.time &gt;= r11.time
-addq $8,r10         F------DDDDD-XW    r10.time = 17
-</code></pre>
-
-<p>Vores specifikation kan kræve anonyme faser, f.eks. 2 mellem F og D som ovenfor,
-men vi kan også indsætte yderligere anonyme faser i afviklingsplottet for at
-få afviklingen til at overholde andre begrænsninger.</p>
-<h2 id="abstraktion">Abstraktion</h2>
-<p>Anonyme faser gør det nemmere at se bort fra ting der ikke har interesse. 
-For eksempel kan vi udelade afkodningstrinnet fra vores beskrivelse, men få samme afvikling:</p>
-<pre><code>aritmetik:  F----XW
-movq (a),b: F----XM--W
-movq b,(a): F----XM
-
-dataafhængigheder:
-aritmetik a op b: X.time &gt;= max(a.time, b.time); b.time = X.time + 1
-movq (a),b: X.time &gt;= a.time; M.time &gt;= MEM[a].time; b.time = M.time + 3
-movq b,(a): X.time &gt;= a.time, M.time &gt;= b.time; MEM[a].time = S.time + 3
-
-inorder(F,X,M,W)
-resB: max pr clk: F:2, X:2, M:1, W:2
-resC: max pr clk: F-X: 8, M-W: 2
-</code></pre>
-
-<p>Hvilket giver den samme afvikling, blot er 'D' ikke nævnt.</p>
-<pre><code>                 012345678901234567
-movq (r10),r11   F----XM--W            r11.time = 9
-addq $100,r11    F--------XW           X.time &gt;= r11.time -&gt; Forsinket X, r11.time = 10
-movq r11,(r10)    F-------XM           X.time &gt;= r10.time, M.time &gt;= r11.time
-addq $8,r10       F--------XW          r10.time = 11
-movq (r10),r11     F--------XM--W      X.time &gt;= r10.time, r11.time = 15
-addq $100,r11      F------------XW     X.time &gt;= r11.time -&gt; Forsinket X, r11.time = 16
-movq r11,(r10)      F-----------XM     X.time &gt;= r10.time, M.time &gt;= r11.time
-addq $8,r10         F------------XW    r10.time = 17
-</code></pre>
-
-<p>Bemærk iøvrigt at selvom denne maskine kan håndtere 2 instruktioner per clk, så
-opnår den i ovenstående eksempel 8/11 IPC, dvs mindre end 1 instruktion per clk.</p>
-<h2 id="ker">Køer</h2>
-<p>TBD</p>
-<h2 id="cache-miss">Cache-miss</h2>
-<p>TBD</p>
-<h1 id="out-of-order">Out-of-order</h1>
-<h2 id="faser-i-program-rkkeflge-eller-ej">Faser i program-rækkefølge - eller ej</h2>
-<p>Man kunne jo forestille sig:</p>
-<pre><code>                 012345678
-movq (r10),r11   FDXMW          r11.time = 4
-addq $100,r11    FDDDXW         X.time &gt;= r11.time -&gt; Forsinket X, Gentag D, r11.time = 5
-movq r9,(r14)     FDXM          X.time &gt;= r14.time, M.time &gt;= r9.time  &lt;---- BEMÆRK!
-addq $1,r10       FFDXXW        resB -&gt; Gentag F, r10.time = 5 (eller 6)
-</code></pre>
-
-<p>Bemærk at instruktion nummer 3 her får sin X-fase en clock periode tidligere end instruktionen
-før. På en måde overhaler instruktion nummer 3 altså instruktion nummer 2.</p>
-<p>Men det tillader vores inorder() erklæring ikke og giver os i stedet:</p>
-<pre><code>                 012345678
-movq (r10),r11   FDXMW          r11.time = 4
-addq $100,r11    FDDDXW         X.time &gt;= r11.time -&gt; Forsinket X, Gentag D, r11.time = 5
-movq r9,(r14)     FDDXM         inorder(X) -&gt; Forsinket X, vent i D, X.time &gt;= r14.time, M.time &gt;= r9.time
-addq $1,r10       FFFDXW        resB -&gt; Gentag F, r10.time = 7
-</code></pre>
-
-<p>Vi kan ane at der findes mere ydeevne i form af mere parallelisme i udførelsen, hvis vi
-blot kan afvige fra inorder-kravet i en eller flere faser.</p>
-<p>Det har man gjort for "special cases" i mange maskiner gennem årene, men de sidste 20 år er der
-etableret en mere generel "standard model" for out-of-order maskiner</p>
-<h2 id="standardmodellen-for-out-of-order-mikroarkitektur">Standardmodellen for out-of-order mikroarkitektur</h2>
-<h3 id="inorder-og-out-of-order">Inorder og out-of-order</h3>
-<p>I denne model passerer instruktioner først i programrækkefølge gennem en pipeline hvor de ender i
-en skeduleringsenhed (scheduler). Derfra kan de udføres uden at overholde programrækkefølgen.
-Efter udførsel placeres resultaterne i en form for kø. Resultaterne udtages fra denne kø og fuldføres
-i programrækkefølge. Det gælder såvel for skrivninger til registre, som for skrivninger til lageret.</p>
-<p>Vi kan beskrive det ved følgende faser der er fælles for alle instruktioner:
-<em> F: Start på instruktionshentning
-</em> Q: Ankomst til scheduler
-* C: Fuldførelse</p>
-<p>Og vi benytter lejligheden til at fjerne <code>W</code> trinnet fra beskrivelsen.</p>
-<h3 id="lagerreferencer">Lagerreferencer</h3>
-<p>I de hidtil beskrevne maskiner bruger både lagerreferencer og aritmetiske
-instruktioner fasen <code>X</code>. Det afspejler at man i simple maskiner foretager
-adresseberegning med den samme hardware som man bruger til aritmetiske
-instruktioner. I standardmodellen har man i stedet en dedikeret fase til
-adresseberegning, kaldet <code>A</code>. Denne skelnen mellem <code>A</code> og <code>X</code> gør at man kan
-begrænse <code>A</code> til at forekomme i instruktionsrækkefølge, mens de andre
-beregninger ikke har den begrænsning.</p>
-<p>Instruktioner der skriver til lageret har et væsentlig mere kompliceret
-forløb i en out-of-order maskine sammenlignet med en inorder maskine.
-Disse instruktioner må ikke opdatere lageret før <code>C</code>, så i stedet
-placeres skrivningerne i en skrive-kø. Skrive-køen indeholder adresse
-og data som kan bruges til at udføre skrivningen senere, efter <code>C</code>.
-Instruktioner indføjes i skrivekøen umiddelbart efter <code>A</code>. Da <code>A</code> er
-en fase der udføres i instruktionsrækkefølge, kan efterfølgende instruktioner
-der læser fra lageret sammenligne deres adresse med udestående skrivninger
-i skrive-køen, og hvis adressen matcher kan den tilsvarende værdi hentes
-fra skrive-køen. Instruktioner der skriver til lageret kan (skal) indsætte
-deres adresse i skrive-køen selvom den værdi der skal skrives endnu ikke
-er beregnet. Det tidspunkt hvor værdien kopieres til skrive-køen markeres <code>V</code>.</p>
-<h3 id="en-lille-out-of-order-model">En lille out-of-order model</h3>
-<p>Her er en model af en lille out-of-order maskine</p>
-<pre><code>aritmetik:  F----QXC
-movq (a),b: F----QAM--C
-movq b,(a): F----QAMVC
-
-dataafhængigheder:
-aritmetik a op b: X.time &gt;= max(a.time, b.time); b.time = X.time + 1
-movq (a),b: A.time &gt;= a.time; M.time &gt;= MEM[a].time; b.time = M.time + 3
-movq b,(a): A.time &gt;= a.time, V.time &gt;= b.time; MEM[a].time = V.time + 1
-
-inorder(F,Q,C,A)
-outoforder(X,M)
-resB: max pr clk: F:2, Q:2, X:2, A:1, M:1, V:1, C:2
-resC: max pr clk: F-Q: 8, M-W: 2, Q-C: 32
-resD: unbounded: Q-X, Q-A, A-M, M-V, V-C, M-C
-</code></pre>
-
-<p>Bemærk at udover at faserne X og M nu er erklæret out-of-order, så er
-der indsat en begrænsning på 32 instruktioner fra Q til C. Det vil sige
-vi tillader 32 instruktioner at være i forskellige faser mellem Q og C.
-Dette kaldes skeduleringsvinduet. Jo større det er, jo flere instruktioner
-kan maskinen "se fremad" i instruktionsstrømmen.</p>
-<p>Bemærk også at til forskel fra alle de tidligere maskiner er der ikke
-længere noget krav om X skal følge i en bestemt afstand efter Q, eller
-at C skal følge i en bestemt afstand efter X eller M.</p>
-<p>Disse begrænsninger ville give følgende udførelse</p>
-<pre><code>                 012345678901234567
-movq (r10),r11   F----QAM--C            r11.time = 10
-addq $100,r11    F----Q----XC           r11.time = 11
-movq r11,(r10)    F----QAM--VC          X.time &gt;= r10.time, V.time &gt;= r11.time
-addq $8,r10       F----QX----C          r10.time = 8
-movq (r10),r11     F----QAM---C         X.time &gt;= r10.time, r11.time = 12
-addq $100,r11      F----Q----XC         X.time &gt;= r11.time, r11.time = 13
-movq r11,(r10)      F----QAM--VC        X.time &gt;= r10.time, V.time &gt;= r11.time
-addq $8,r10         F----QX----C        r10.time = 10
-</code></pre>
-
-<p>Med en gennemsnitlig ydeevne på 2 IPC.</p>
-<h1 id="kontrol-afhngigheder">Kontrol afhængigheder</h1>
-<h2 id="modellering">Modellering</h2>
-<p>Vi modellerer effekten af hop, kald og retur ved at forsinke 'F'.
-For kald og retur skelner vi mellem korrekte og fejlagtige
-forudsigelser. For betingede hop skelner vi tillige mellem om
-hoppet tages eller ej.</p>
-<p>Vi udtrykker effekten ved tildelinger til en ny tidsvariabel: NextF.time
-Og for enhver instruktion gælder altid at F.time &gt;= NextF.time</p>
-<p>Vi tilføjer en ny fase, <code>B</code>, specifik for betingede hop, kald og retur.
-<code>B</code> svarer til <code>X</code> for de aritmetiske instruktioner. <code>B</code> angiver det
-tidspunkt, hvor vi <em>afgør</em> om forudsigelser af instruktionen var korrekt
-eller ej. Vi tillader at <code>B</code> indtræffer out-of-order i forhold til andre 
-typer instruktioner, men kræver det sker in-order i forhold til andre
-hop, kald eller retur.</p>
-<pre><code>call a,b:   F----QBC
-ret  a:     F----QBC
-cbcc a,b,x: F----QBC
-inorder(B)
-</code></pre>
-
-<p>Her er nogle mulige regler for en out-of-order maskine som beskrevet ovenfor</p>
-<pre><code>Instruktion  Taget  Forudsagt    Effekt
-Call         ja     ja           NextF.time = F.time + 2
-Ret          ja     ja           NextF.time = F.time + 2
-             ja     nej          NextF.time = B.time + 1
-CBcc         nej    ja           - (ingen)
-             nej    nej          NextF.time = B.time + 1
-             ja     ja           NextF.time = F.time + 2
-             ja     nej          NextF.time = F.time + 2
-</code></pre>
-
-<p>Herunder ses to gennemløb af en indre løkke, hvor hop forudsiges korrekt.</p>
-<pre><code>                       012345678901234567
-loop: movq (r10),r11   F----QAM--C            r11.time = 10
-      addq $100,r11    F----Q----XC           r11.time = 11
-      movq r11,(r10)    F----QAM--VC          X.time &gt;= r10.time, V.time &gt;= r11.time
-      addq $8,r10       F----QX----C          r10.time = 8
-      cbl  r10,r12,loop  F----QB----C             NextF.time = 4 (forudsagt korrekt taget)
-loop: movq (r10),r11       F----QAM--C            r11.time = 14
-      addq $100,r11        F----Q----XC           r11.time = 15
-      movq r11,(r10)        F----QAM--VC          X.time &gt;= r10.time, V.time &gt;= r11.time
-      addq $8,r10           F----QX----C          r10.time = 12
-      cbl  r10,r12,loop      F----QB----C
-</code></pre>
-
-<p>Ydeevne: 5/4 IPC</p>
-<p>På grund af omkostningen ved hop vil en oversætter ofte rulle en løkke-krop
-ud en eller flere gange. Herunder ses effekten af en enkelt udrulning</p>
-<pre><code>                       012345678901234567
-loop: movq (r10),r11   F----QAM--C            r11.time = 10
-      addq $100,r11    F----Q----XC           r11.time = 11
-      movq r11,(r10)    F----QAM--VC          X.time &gt;= r10.time, V.time &gt;= r11.time
-      addq $8,r10       F----QX----C          r10.time = 8
-      cbgt  r10,r12,exit F----QB----C         forudsagt korrekt ikke taget
-      movq (r10),r11     F----QAM---C         r11.time = 13
-      addq $100,r11       F----Q----XC        r11.time = 14
-      movq r11,(r10)      F----QAM--VC        X.time &gt;= r10.time, V.time &gt;= r11.time
-      addq $8,r10          F----QX----C       r10.time = 11
-      cbl  r10,r12,loop    F----QB----C       NextF.time = 6 (forudsagt korrekt taget)
-loop: movq (r10),r11         F----QAM--C      r11.time = 16
-</code></pre>
-
-<p>Ydeevne: 10/6 IPC</p>
-<p>En anden teknik til at skjule omkostningen ved tagne hop er at man dimensionerer
-forenden af mikroarkitektur (F til Q) lidt større end resten. Her er for eksempel
-et afviklingsplot for den ikke udrullede løkke på en maskine der kan håndtere 3
-instruktioner samtidigt i F til Q:</p>
-<pre><code>                       012345678901234567
-loop: movq (r10),r11   F----QAM--C            r11.time = 10
-      addq $100,r11    F----Q----XC           r11.time = 11
-      movq r11,(r10)   F----Q-AM--VC          X.time &gt;= r10.time, V.time &gt;= r11.time
-      addq $8,r10       F----QX----C          r10.time = 8
-      cbl  r10,r12,loop F----Q-B----C            NextF.time = 3 (forudsagt korrekt taget)
-loop: movq (r10),r11      F----QAM--C            r11.time = 14
-      addq $100,r11       F----Q----XC           r11.time = 15
-      movq r11,(r10)      F----Q-AM--VC          X.time &gt;= r10.time, V.time &gt;= r11.time
-      addq $8,r10          F----QX----C          r10.time = 12
-      cbl  r10,r12,loop    F----Q-B----C
-</code></pre>
-
-<p>Ydeevne: 5/3 IPC</p>
-<p>Her ses effekten af en forkert forudsigelse:</p>
-<pre><code>                       012345678901234567
-loop: movq (r10),r11   F----QAM--C            r11.time = 10
-      addq $100,r11    F----Q----XC           r11.time = 11
-      movq r11,(r10)    F----QAM--VC          X.time &gt;= r10.time, V.time &gt;= r11.time
-      addq $8,r10       F----QX----C          r10.time = 8
-      cbl  r10,r12,loop  F----QB----C         NextF.time = 9 (forudsagt forkert)
-loop: movq (r10),r11            F----QAM--C            r11.time = 14
-      addq $100,r11             F----Q----XC           r11.time = 15
-      movq r11,(r10)             F----QAM--VC          X.time &gt;= r10.time, V.time &gt;= r11.time
-      addq $8,r10                F----QX----C          r10.time = 12
-</code></pre>
-
-<p>Ydeevne 5/9 IPC</p>
-<p>Jo længere pipeline, jo større omkostning ved forkerte forudsigelser.</p>
-<h2 id="spekulativ-udfrelse">spekulativ udførelse</h2>
-<p>Det kan ske at <code>B</code> fasen indtræffer meget sent i forhold til udførelsen
-af andre instruktioner. Betragt for eksempel nedenstående stump kode</p>
-<pre><code>    long v = tab[j];
-    if (v &gt; key) {
-      *ptr = *ptr + 1; // found it!
-    }
-</code></pre>
-
-<p>Oversat til x86prime kan det blive til følgende programstump:</p>
-<pre><code>        movq (r10,r11,8),r12
-        cble r12,r13,.endif
-        movq (r15),r14
-        addq $1,r14
-        movq r14,(r15)
-.endif:
-</code></pre>
-
-<p>og lad os antage at variablen 'tab' befinder sig i L2-cache, mens området
-udpeget af variablen 'ptr' er i L1-cache. Lad os antage at L2-cache tilgang
-koster 10 cykler (oveni L1-tilgang).</p>
-<pre><code>                              01234567890123456789012
-        movq (r10,r11,8),r12  F----QAM------------C
-        cble r12,r13,else     F----Q--------------BC
-        movq (r15),r14         F----QAM------------C
-        addq $1,r14            F----Q----X----------C
-        movq r14,(r15)          F----QAM--V---------C
-</code></pre>
-
-<p>Det betingede hop afhænger af en instruktion der er nød til at hente en værdi
-i L2 og bliver således forsinket så det først kan afgøres i cyklus 20.</p>
-<p>Hoppet er forudsagt "ikke taget" og før det afgøres kan de næste tre instruktioner
-læse fra L1-cachen, beregne en ny værdi og lægge den i kø til skrivning til L1.</p>
-<p>Det går selvsagt ikke an faktisk at opdatere L1, før vi ved om hoppet er
-forudsagt korrekt, men alle øvrige aktiviteter kan gennemføres. De instruktioner
-som udføres tidligere end et eller flere hop, kald eller retur, som de egentlig
-afhænger af, siges at være spekulativt udført. Spekulativ udførelse fjerner en
-væsentlig begrænsning på hvor meget arbejde der kan udføres parallelt.</p></div>
-        </div>
-
-        <footer class="col-md-12">
-            <hr>
-            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
-        <script>
-            var base_url = "..",
-                shortcuts = {"search": 83, "next": 78, "help": 191, "previous": 80};
-        </script>
-        <script src="../js/base.js" defer></script>
-        <script src="../search/main.js" defer></script>
-
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+              
             </div>
-            <div class="modal-body">
-                <p>
-                    From here you can search these documents. Enter
-                    your search terms below.
-                </p>
-                <form role="form">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="superscalar/" class="btn btn-neutral float-right" title="Superskalar">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
     </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
-            </div>
-            <div class="modal-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th style="width: 20%;">Keys</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="help shortcut"><kbd>?</kbd></td>
-                    <td>Open this help</td>
-                  </tr>
-                  <tr>
-                    <td class="next shortcut"><kbd>n</kbd></td>
-                    <td>Next page</td>
-                  </tr>
-                  <tr>
-                    <td class="prev shortcut"><kbd>p</kbd></td>
-                    <td>Previous page</td>
-                  </tr>
-                  <tr>
-                    <td class="search shortcut"><kbd>s</kbd></td>
-                    <td>Search</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="modal-footer">
-            </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
         </div>
-    </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="superscalar/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
 </div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
 
-    </body>
+</body>
 </html>
