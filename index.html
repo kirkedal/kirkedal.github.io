@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="None">
+        
+        
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <title>x86prime</title>
+        <link href="css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="js/jquery-1.10.2.min.js" defer></script>
+        <script src="js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body class="homepage">
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href=".">x86prime</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="active">
+                                <a href=".">Home</a>
+                            </li>
+                            <li >
+                                <a href="afviklingsplot/">Afviklingsplot</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="disabled">
+                                <a rel="next" >
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="afviklingsplot/">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#x86prime">x86prime</a></li>
+            <li><a href="#prerequisites">Prerequisites</a></li>
+            <li><a href="#building">Building</a></li>
+            <li><a href="#generating-x86-assembler">Generating x86 assembler</a></li>
+            <li><a href="#translating-x86-into-prime-x86prime">Translating x86 into prime (x86prime)</a></li>
+            <li><a href="#encoding-into-hex-format">Encoding into hex format</a></li>
+            <li><a href="#running">Running</a></li>
+            <li><a href="#generating-a-tracefile">Generating a tracefile</a></li>
+            <li><a href="#limitations-to-cross-assembling">Limitations to cross-assembling</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="x86prime">x86prime</h1>
+<p>A few tools for our x86 subset, x86prime, known as just "prime"</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Install ocaml and opam. This installs the default compiler version for the system,
+which may not be recent enough. Upgrade this to version 4.07, Then use opam to
+install menhir and ocamlbuild.</p>
+<p>On debian based linux this is</p>
+<pre><code>&gt; sudo apt install ocaml opam
+&gt; opam init -a
+</code></pre>
+
+<p>On some systems, the default ocaml version is too old. Use "ocaml --version"
+to find which version you have. If you have something before 4.05.0, you need
+to upgrade. Latest version is 4.07.0. To upgrade do:</p>
+<pre><code>&gt; opam switch 4.07.0
+[at this point you may be asked to run &quot;eval 'opam config env'&quot; - do it]
+</code></pre>
+
+<p>You may have to use "opam switch create" instead of just "opam switch"</p>
+<p>On some systems, this is not enough, and we recommend that you exit your shell,
+then restart it before proceeding</p>
+<p>While OCaml 4.05 works, it produces a lot of warnings. If you'd rather have
+a clean build process, upgrade to 4.07.0 as described above.</p>
+<pre><code>&gt; opam install menhir ocamlbuild
+</code></pre>
+
+<h2 id="building">Building</h2>
+<p>The script "buildall.sh" will build 4 tools:</p>
+<ul>
+<li>primify, a tool which translates real x86 assembler into prime assembler</li>
+<li>prasm, the assembler, a tool which encodes prime assembler into a format known as "hex"</li>
+<li>prun, a tool which reads hex files and runs them</li>
+<li>prerf, like prun, but collect performance statistics</li>
+</ul>
+<p>The tools will be linked from the "bin" subdirectory.</p>
+<pre><code>&gt; ./buildall.sh
+</code></pre>
+
+<p>If by accident you have built part of the program using an old version, you
+may get an error during build indicating a version problem with part of the
+project. If this happens, remove the "_build" subdirectory.</p>
+<p>And build again.</p>
+<h2 id="generating-x86-assembler">Generating x86 assembler</h2>
+<p>x86 assembler is in files with suffix ".s"</p>
+<p>You can write one yourself. Or generate one from a program written in "C"
+using a C-compiler.</p>
+<pre><code>&gt; gcc -S -Og -fno-optimize-sibling-calls my_program.c
+</code></pre>
+
+<h2 id="translating-x86-into-prime-x86prime">Translating x86 into prime (x86prime)</h2>
+<p>The "primify" program will translate an x86 assembler source file into
+correspondingly named ".prime" files.</p>
+<pre><code>&gt; bin/primify my_program.s
+</code></pre>
+
+<p>This results in a new file, "my_program.prime"</p>
+<h2 id="encoding-into-hex-format">Encoding into hex format</h2>
+<p>The simulators cannot directly read the symbolic prime assembler. You need to
+assemble it into hex-format. Use</p>
+<pre><code>&gt; bin/prasm my_program.prime
+</code></pre>
+
+<p>This produces "my_program.hex", which can be inspected to learn how the prime
+program is encoded in numbers.</p>
+<p>It also produces "my_program.sym", which is a list of symbols. This is used by
+the simulator to allow you to pick which part of the code to execute.</p>
+<h2 id="running">Running</h2>
+<p>Programs are simulated by "prun"</p>
+<pre><code>&gt; bin/prun my_program.hex my_start_function
+</code></pre>
+
+<p>Here, the label "my_start_function" must have been defined by the original ".prime"
+program.</p>
+<p>Without more options, the simulation is silent. To see what happens, add "-show" option</p>
+<p>Sit back, relax and watch the blinkenlights.</p>
+<h2 id="generating-a-tracefile">Generating a tracefile</h2>
+<p>A tracefile records all changes to memory and register made by your program.
+You request a tracefile by the "-tracefile" option:</p>
+<pre><code>&gt; bin/prun my_program.s my_start_function -tracefile prog.trc
+</code></pre>
+
+<p>The subdirectory "examples" includes an example C program (bubblesort.c)
+which can be used as introduction to the tools. It has 2 entry-points, "run"
+and "run2". If you use "run" it will silently input an integer from the keyboard.
+If running it seems to just hang, try providing a small number and press enter.
+If you use "run2", it will instead try to access any command line arguments.
+To pass command line arguments into the simulated program, just add them to 
+the command line after all the other arguments. The bubblesort.c program
+illustrates how the program can access the additional arguments, see the "run2"
+function.</p>
+<h2 id="limitations-to-cross-assembling">Limitations to cross-assembling</h2>
+<p>The translation from x86 to prime is not perfect.</p>
+<ul>
+<li>
+<p>When gcc optimizes heavily ("-O2, -O3"), the code patterns generated will not
+   be translated correctly. In most cases primify will stop with an exception. 
+   We believe "-Og" to be working reasonably well, so stick to that.</p>
+</li>
+<li>
+<p>Tail-call optimization will result in code, which cannot be correctly translated
+   into "prime", worse: this currently goes undetected - to disable it use "-fno-optimize-sibling-calls"</p>
+</li>
+<li>
+<p>When gcc needs to use almost all registers in a function, translation will either fail
+   or just be incorrect.</p>
+</li>
+<li>
+<p>Using combinations of signed and unsigned longs may not be handled correctly.</p>
+</li>
+<li>
+<p>Using constants which cannot be represented in 32-bit 2-complement form
+   may not be handled correctly.</p>
+</li>
+<li>
+<p>Larger "switch" statements can not be translated</p>
+</li>
+</ul>
+<p>In short, we advise you to check the translation result for correctness instead
+of blindly trusting it.</p></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = ".",
+                shortcuts = {"search": 83, "next": 78, "help": 191, "previous": 80};
+        </script>
+        <script src="js/base.js" defer></script>
+        <script src="search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
+
+<!--
+MkDocs version : 1.0.4
+Build Date UTC : 2019-10-01 15:38:28
+-->
