@@ -55,6 +55,11 @@
           
             <li class="toctree-l1">
 		
+    <a class="" href="../../x86prime/">x86prime</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <span class="caption-text">Afviklingsplot</span>
     <ul class="subnav">
                 <li class="">
@@ -124,13 +129,13 @@
               
                 <h1 id="superskalar-mikroarkitektur">Superskalar mikroarkitektur</h1>
 <p>I jagten efter højere ydeevne kan man finde på at skrue op for ressourcerne.
-Hvis der er mere end en instruktion der udfører sin X-fase samtidigt, taler
+Hvis der er mere end en instruktion der udfører sin <code>X</code>-fase samtidigt, taler
 man om en superskalar maskine.</p>
-<p>En simpel 2-vejs superskalar kan håndtere 2 instruktioner samtidigt i
-faserne F,D,X og W, men kun 1 instruktion samtidigt i fase M. Det er motiveret
-af at fase M er dyrere end de andre. Til gengæld vil man knytte forskellige faser
-til forskellige klasser af instruktioner, således at ikke alle har en fase M.
-Man kan også undgå en fase W for instruktioner der ikke skriver til et resultat
+<p>En simpel 2-vejs superskalar kan håndtere to instruktioner samtidigt i
+faserne <code>F</code>,<code>D</code>,<code>X</code> og <code>W</code>, men kun 1 instruktion samtidigt i fase <code>M</code>. Det er motiveret
+af at fase <code>M</code> er dyrere end de andre. Til gengæld vil man knytte forskellige faser
+til forskellige klasser af instruktioner, således at ikke alle har en fase <code>M</code>.
+Man kan også undgå en fase <code>W</code> for instruktioner der ikke skriver til et resultat
 register</p>
 <pre><code>simpel aritmetik:  FDXW
 movq (a),b: FDXMW

@@ -55,6 +55,11 @@
           
             <li class="toctree-l1">
 		
+    <a class="" href="../../x86prime/">x86prime</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <span class="caption-text">Afviklingsplot</span>
     <ul class="subnav">
                 <li class="">
@@ -146,20 +151,20 @@ fuldt afkode en instruktion på en enkelt cyklus.</p>
 for hver af dem. Vi vælger en simplere notation: Når vi opskriver faserne for
 en instruktionsklasse kan vi</p>
 <ul>
-<li>tilføje anonyme faser som er påkrævet med "-" og</li>
-<li>angive hvor mange instuktioner der kan befinde sig i "mellemrummet" mellem
+<li>tilføje anonyme faser som er påkrævet med <code>-</code> og</li>
+<li>angive hvor mange instruktioner der kan befinde sig i "mellemrummet" mellem
   to navngivne faser.</li>
 </ul>
 <p>Man kan vælge at betragte tidligere beskrivelser af begrænsinger som specialtilfælde,
-hvor <em>ingen</em> instruktioner må være i anonyme faser, dvs: F-D: 0, D-X: 0, X-M: 0, M-W: 0.
-Her betyder såleds "F-D: 0" at der ingen instruktioner må være, som har gennemført fase
-F, men ikke påbegyndt D. Med andre ord: Fase D skal følge direkte efter fase F i afviklingsplottet</p>
+hvor <em>ingen</em> instruktioner må være i anonyme faser, dvs: <code>F-D: 0</code>, <code>D-X: 0</code>, <code>X-M: 0</code>, <code>M-W: 0</code>.
+Her betyder såleds "<code>F-D: 0</code>" at der ingen instruktioner må være, som har gennemført fase
+F, men ikke påbegyndt D. Med andre ord: Fase <code>D</code> skal følge direkte efter fase <code>F</code> i afviklingsplottet</p>
 <p>For eksempel:</p>
 <pre><code>resC: max pr clk: F-D: 4, D-X: 2, M-W: 2
 </code></pre>
 
-<p>Angiver 4 ekstra instruktioner mellem F og D, 2 ekstra mellem D og X og to ekstra
-mellem M og W.</p>
+<p>Angiver fire ekstra instruktioner mellem <code>F</code> og <code>D</code>, 2 ekstra mellem <code>D</code> og <code>X</code> og to ekstra
+mellem <code>M</code> og <code>W</code>.</p>
 <p>Så vi i alt har:</p>
 <pre><code>aritmetik:  F--D-XW
 movq (a),b: F--D-XM--W
@@ -187,11 +192,11 @@ movq r11,(r10)      F-----DD----XM     X.time &gt;= r10.time, M.time &gt;= r11.t
 addq $8,r10         F------DDDDD-XW    r10.time = 17
 </code></pre>
 
-<p>Vores specifikation kan kræve anonyme faser, f.eks. 2 mellem F og D som ovenfor,
+<p>Vores specifikation kan kræve anonyme faser, f.eks. to mellem <code>F</code> og <code>D</code> som ovenfor,
 men vi kan også indsætte yderligere anonyme faser i afviklingsplottet for at
 få afviklingen til at overholde andre begrænsninger.</p>
 <h2 id="abstraktion">Abstraktion</h2>
-<p>Anonyme faser gør det nemmere at se bort fra ting der ikke har interesse. 
+<p>Anonyme faser gør det nemmere at se bort fra ting der ikke har interesse.
 For eksempel kan vi udelade afkodningstrinnet fra vores beskrivelse, men få samme afvikling:</p>
 <pre><code>aritmetik:  F----XW
 movq (a),b: F----XM--W
@@ -207,7 +212,7 @@ resB: max pr clk: F:2, X:2, M:1, W:2
 resC: max pr clk: F-X: 8, M-W: 2
 </code></pre>
 
-<p>Hvilket giver den samme afvikling, blot er 'D' ikke nævnt.</p>
+<p>Hvilket giver den samme afvikling, blot er <code>D</code> ikke nævnt.</p>
 <pre><code>                 012345678901234567
 movq (r10),r11   F----XM--W            r11.time = 9
 addq $100,r11    F--------XW           X.time &gt;= r11.time -&gt; Forsinket X, r11.time = 10

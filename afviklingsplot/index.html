@@ -55,6 +55,11 @@
           
             <li class="toctree-l1">
 		
+    <a class="" href="../x86prime/">x86prime</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <span class="caption-text">Afviklingsplot</span>
     <ul class="subnav">
                 <li class=" current">
@@ -66,7 +71,7 @@
     
         <ul>
         
-            <li><a class="toctree-l4" href="#ide">Ide</a></li>
+            <li><a class="toctree-l4" href="#ide">Idè</a></li>
         
             <li><a class="toctree-l4" href="#pipeline-faser-og-ressourcer">Pipeline faser og ressourcer</a></li>
         
@@ -138,7 +143,7 @@
 <p>Et afviklingsplot er en idealiseret illustration af hvordan en mikroarkitektur
 afvikler en strøm af instruktioner. Men det er også et redskab som kan bruges
 til at bestemme en mikroarkitekturs ydeevne for en strøm af instruktioner.</p>
-<h2 id="ide">Ide</h2>
+<h2 id="ide">Idè</h2>
 <p>Under afvikling af hver instruktion på en given mikroarkitektur gennemgår
 instruktionen forskellige faser. Et afviklingsplot angiver tidspunktet
 for hver væsentlig fase en instruktion gennemløber. Instruktionsstrømmen
@@ -152,13 +157,13 @@ movq r1,(r10)      X
 addq $1,r10         X
 </code></pre>
 
-<p>Her er kun en enkelt fase, kaldet <code>X</code> for eXecute, da alle instruktioner kan udføres på en enkelt clock-periode. Vi har altså den sekventielle model, som den vi forstår når vi læser et assembler program; altså først indlæser vi noget fra hukommelsen, derefter ligger vi en vædi til dette, hvorefter vi skriver det tilbage til hukommelsen.</p>
+<p>Her er kun en enkelt fase, kaldet <code>X</code> for eXecute, da alle instruktioner kan udføres på en enkelt clock-periode. Vi har altså den sekventielle model, som den vi forstår når vi læser et assembler program; altså først indlæser vi noget fra hukommelsen, derefter ligger vi en værdi til dette, hvorefter vi skriver det tilbage til hukommelsen.</p>
 <p>Hvis vi ønsker at finde denne arkitekturs ydeevne, kan man altså gøre dette ved at tælle antallet af instruktioner.</p>
 <h2 id="pipeline-faser-og-ressourcer">Pipeline faser og ressourcer</h2>
-<p>En instruktion gennemgår nogle faser når den afvikles. Nogle faser er generiske; nogle afhænger af instruktionen.</p>
+<p>Siden slutningen af 70'erne hvor de første pipeline arkitekturer blev introduceret, har en instruktion gennemgået flere faser når den afvikles. Nogle faser er generiske; nogle afhænger af instruktionen.</p>
 <p>Faserne gennemløbes i rækkefølge bestemt af instruktionstype og mikroarkitektur.</p>
 <p>Betragt for eksempel en afviklingen på en simpel pipeline, typisk for de første RISC
-maskiner konstrueret i 80'erne. Her er der fem faser: FDXMW (Fetch, Decode, eXecute,
+maskiner konstrueret i 80'erne. Her er der fem faser: <code>FDXMW</code> (Fetch, Decode, eXecute,
 Memory, Writeback).</p>
 <p>Alle instruktioner passerer gennem de samme fem trin.</p>
 <p>Her ses nogle begrænsninger for en 5-trins pipeline:</p>
@@ -170,7 +175,7 @@ ressourcer: F:1, D:1, X:1, M:1, W:1
 instruktionshentning i et antal instruktioner. For en maskine med instruktioner
 af forskellig længde er bindingen mere korrekt udtrykt som et antal bytes.
 Først i forbindelse med afkodning er det klart, hvor en instruktion begynder
-og slutter. Den lille detalje vil vi se bortfra.</p>
+og slutter. Den lille detalje vil vi se bort fra.</p>
 <p>Her er et afviklingsplot:</p>
 <pre><code>                 01234567
 movq (r10),r11   FDXMW
@@ -228,8 +233,8 @@ movq r11,(r10)     FFDXMW       resA -&gt; Forsinket D, STALL i F, X.time &gt;= 
 addq $8,r10          FDXMW      resA -&gt; forsinket F, r10.time = 7
 </code></pre>
 
-<p>Bemærk hvorledes instruktion nr. 2 bliver forsinket en clock periode i sin D-fase,
-fordi den afhænger af r11 som bliver produceret af den forudgående instruktion
+<p>Bemærk hvorledes instruktion nr. 2 bliver forsinket en clock periode i sin <code>D</code>-fase,
+fordi den afhænger af <code>r11</code> som bliver produceret af den forudgående instruktion
 der har en latenstid på 2 clock-perioder.</p>
               
             </div>
@@ -241,7 +246,7 @@ der har en latenstid på 2 clock-perioder.</p>
         <a href="superscalar/" class="btn btn-neutral float-right" title="Superskalar">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../x86prime/" class="btn btn-neutral" title="x86prime"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -267,7 +272,7 @@ der har en latenstid på 2 clock-perioder.</p>
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../x86prime/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
         <span style="margin-left: 15px"><a href="superscalar/" style="color: #fcfcfc">Next &raquo;</a></span>
